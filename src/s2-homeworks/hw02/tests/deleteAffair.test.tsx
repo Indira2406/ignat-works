@@ -15,7 +15,7 @@ beforeEach(() => {
 
 test('delete 0', () => {
     const newState = deleteAffair(initialState, 0)
-    expect(newState.length).toBe(5)
+    expect(newState?.length).toBe(5)
 })
 test('delete 1', () => {
     const newState = deleteAffair(initialState, 1)
@@ -23,13 +23,13 @@ test('delete 1', () => {
 })
 test('delete 3', () => {
     const newState = deleteAffair(initialState, 3)
-    expect(newState.length).toBe(4)
+    expect(newState?.length).toBe(4)
 })
 test('delete 5', () => {
     const newState = deleteAffair(initialState, 5)
-    expect(newState.length).toBe(4)
+    expect(newState?.length).toBe(4)
 })
 test('delete 6', () => {
     const newState = deleteAffair(initialState, 6)
-    expect(newState.length).toBe(5)
+    expect(newState?.length).toBe(5)
 })

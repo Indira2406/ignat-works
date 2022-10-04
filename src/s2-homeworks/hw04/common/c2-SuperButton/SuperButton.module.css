@@ -1,16 +1,36 @@
-.button {
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 24px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .disabled {
+    opacity: 0.5;
+    background: #0066CC;
 }
 
 .secondary {
-}
+    border: 1px solid #0066CC;
+    background-color: #fff;
+    color: #0066CC;}
 
 .default {
+    background: #0066CC;
 }
 
 .red {
+    background: #CC1439;
 }
 
 .default:hover {

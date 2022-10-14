@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import s from "./Sidebar.module.css";
 import { PATH } from "../Pages";
 import closeIcon from "./closeOutline.svg";
-import { useLocation } from "react-router-dom";
 
 type PropsType = {
   open: boolean;
@@ -11,10 +10,8 @@ type PropsType = {
 };
 
 export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
-  const location = useLocation();
 
   const sidebarClass = s.sidebar + (open ? " " + s.open : "");
-  const currentPath = location.pathname;
 
   return (
     <>
@@ -40,7 +37,7 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
             to={PATH.JUNIOR}
             onClick={handleClose}
             className={({ isActive }) =>
-              currentPath === PATH.JUNIOR ? s.active : undefined
+              isActive ? s.active : undefined
             } // делает студент
           >
             Junior
@@ -49,8 +46,8 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
             id={"hw5-junior-plus-link"}
             to={PATH.JUNIOR_PLUS}
             onClick={handleClose}
-            className={() =>
-              currentPath === PATH.JUNIOR_PLUS ? s.active : undefined
+            className={({isActive}) =>
+              isActive ? s.active : undefined
             } // делает студент
           >
             Junior Plus

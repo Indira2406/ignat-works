@@ -22,8 +22,6 @@ const HW6 = () => {
         const state: string = restoreState<string>('hw6-editable-span-value', value)
         setValue(state)
     }
-
-    console.log(value)
     return (
         <div id={'hw6'}>
             <div className={s2.hwTitle}>Homework #6</div>

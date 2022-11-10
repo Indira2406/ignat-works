@@ -10,29 +10,45 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const start = () => {
+        stop();
+        const id: number = window.setInterval(()=> {
+            setDate(new Date())
+        }, 1000)
+            setTimerId(id);
+          
+
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
 
     }
 
     const stop = () => {
+        clearInterval(timerId);
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
 
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
+        setShow(true)
 
     }
     const onMouseLeave = () => { // пишут студенты // спрятать дату если мышка не наведена
+        setShow(false)
 
     }
 
-    const stringTime = 'date->time' || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = 'date->date' || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const stringTime = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}` || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+    const stringDate = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}` || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
+    let weekFormatter = new Intl.DateTimeFormat("en", {
+        weekday: "long",
+      });
+      let monthFormatter = new Intl.DateTimeFormat("en", {
+        month: "long",
+      });
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-    const stringDay = 'date->day' || <br/> // пишут студенты
-    const stringMonth = 'date->month' || <br/> // пишут студенты
+    const stringDay = weekFormatter.format(date) || <br/> // пишут студенты
+    const stringMonth = monthFormatter.format(date) || <br/> // пишут студенты
 
     return (
         <div className={s.clock}>

@@ -10,7 +10,7 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const start = () => {
-        stop();
+        stop()
         const id: number = window.setInterval(()=> {
             setDate(new Date())
         }, 1000)
@@ -24,9 +24,12 @@ function Clock() {
 
     const stop = () => {
         clearInterval(timerId);
+        setTimerId(undefined)
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
 
     }
+
+    console.log(timerId)
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
         setShow(true)
@@ -82,14 +85,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={timerId !== undefined} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={timerId === undefined} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
